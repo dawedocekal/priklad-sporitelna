@@ -1,8 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import styles from './app.module.css';
-import { useEffect } from 'react';
-
-import NxWelcome from './nx-welcome';
+import React, { useEffect } from 'react';
+import { Routes, Route } from "react-router-dom";
+import Homepage from './pages/homepage/homepage';
 
 export function App() {
   useEffect(() => {
@@ -10,12 +10,11 @@ export function App() {
       .then(t => t.json())
       .then((d) => console.log(d))
   }, []);
+  
   return (
-    <>
-      <NxWelcome title="priklad-sporitelna" />
-
-      <div />
-    </>
+    <Routes>
+      <Route path="/" element={<Homepage />} /> 
+    </Routes>
   );
 }
 
