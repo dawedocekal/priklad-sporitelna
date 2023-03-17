@@ -9,6 +9,7 @@ import Heading from 'src/app/atoms/heading/heading';
 import { getDataFromSessionStorage } from 'src/app/utilities/utilities';
 import { SPORITELNA_SESSION_KEY } from 'src/app/constants/constants';
 import { BankType } from 'src/app/types/types';
+import { FORM_EMAIL_ELEMENT, FORM_BRANCH_ELEMENT, FORM_YEARS_ELEMENT, FORM_NAME_ELEMENT } from 'src/app/constants/constants';
 
 export interface CustomerFormInfoProps {
   banks: BankType[];
@@ -44,7 +45,7 @@ const CustomerFormInfo = ({ banks }: CustomerFormInfoProps) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box sx={{ display: 'flex', flexDirection: 'column', my: 4 }}>
           <Controller
-            name="name"
+            name={FORM_NAME_ELEMENT}
             control={control}
             rules={{ required: true }}
             defaultValue={''}
@@ -53,13 +54,13 @@ const CustomerFormInfo = ({ banks }: CustomerFormInfoProps) => {
                 type="string"
                 label="Jméno"
                 field={field}
-                inputErrors={errors['name']}
+                inputErrors={errors[FORM_NAME_ELEMENT]}
               />
             )}
           />
 
           <Controller
-            name="years"
+            name={FORM_YEARS_ELEMENT}
             control={control}
             rules={{ required: true, min: 18 }}
             defaultValue={''}
@@ -68,13 +69,13 @@ const CustomerFormInfo = ({ banks }: CustomerFormInfoProps) => {
                 type="number"
                 label="Věk"
                 field={field}
-                inputErrors={errors['years']}
+                inputErrors={errors[FORM_YEARS_ELEMENT]}
               />
             )}
           />
 
           <Controller
-            name="email"
+            name={FORM_EMAIL_ELEMENT}
             control={control}
             rules={{
               required: true,
@@ -87,13 +88,13 @@ const CustomerFormInfo = ({ banks }: CustomerFormInfoProps) => {
                 type="string"
                 label="Email"
                 field={field}
-                inputErrors={errors['email']}
+                inputErrors={errors[FORM_EMAIL_ELEMENT]}
               />
             )}
           />
 
           <Controller
-            name="branch"
+            name={FORM_BRANCH_ELEMENT}
             control={control}
             defaultValue={''}
             rules={{ required: true }}
@@ -102,7 +103,7 @@ const CustomerFormInfo = ({ banks }: CustomerFormInfoProps) => {
                 options={banks}
                 label="Branch"
                 field={field}
-                inputErrors={errors['branch']}
+                inputErrors={errors[FORM_BRANCH_ELEMENT]}
               />
             )}
           />
