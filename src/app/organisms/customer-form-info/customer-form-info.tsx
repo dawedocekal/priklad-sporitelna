@@ -79,7 +79,7 @@ const CustomerFormInfo = ({ banks }: CustomerFormInfoProps) => {
             rules={{
               required: true,
               pattern:
-                /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
             }}
             defaultValue={''}
             render={({ field }) => (
