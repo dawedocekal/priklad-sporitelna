@@ -30,7 +30,7 @@ app.get("/api", async (req, res) => {
       message: "success",
       data: {
         drink: drinks[0],
-        banks: banks.filter((bank: any) => bank.city === 'Brno' && bank.type === 'BRANCH' && bank.state === 'OPEN'),
+        banks: banks.filter((bank: {city: string, type: string, state:string}) => bank.city === 'Brno' && bank.type === 'BRANCH' && bank.state === 'OPEN'),
       },
     };
 
